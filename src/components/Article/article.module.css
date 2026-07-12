@@ -1,0 +1,174 @@
+.articlePage {
+  padding: 110px 0 80px 0;
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #0070f3;
+  font-size: 16px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  cursor: pointer;
+  padding: 10px 0px;
+  margin-bottom: 30px;
+  transition: transform 0.2s ease;
+}
+
+.backBtn:hover {
+  transform: translateX(-5px);
+}
+
+.mainContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.metaTop {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  font-size: 14px;
+  font-family: 'Open Sans';
+  color: #666666;
+  margin-bottom: 15px;
+}
+
+.source {
+  font-family: 'Roboto';
+  background-color: #f0f7ff;
+  color: #0070f3;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.title {
+  font-family: 'Roboto';
+  font-size: 40px;
+  line-height: 1.25;
+  font-weight: 800;
+  color: #111111;
+  margin-bottom: 20px;
+}
+
+.author {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  color: #555555;
+  margin-bottom: 30px;
+}
+
+.author span {
+  font-weight: 600;
+  color: #222222;
+}
+
+.imageWrapper {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.mainImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: 480px;
+}
+
+.body {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #333333;
+}
+
+.description {
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 20px;
+  color: #111111;
+  margin-bottom: 25px;
+  border-left: 4px solid #0070f3;
+  padding-left: 20px;
+}
+
+.text {
+  margin-bottom: 40px;
+  white-space: pre-line;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  border-top: 1px solid #eeeeee;
+  gap: 20px;
+}
+
+.originLink {
+  color: #0070f3;
+  font-family: 'Roboto';
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.2s ease;
+}
+
+.originLink:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.favoriteBtn {
+  padding: 12px 25px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #0070f3;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.favoriteBtn:hover {
+  background-color: #0056b3;
+}
+
+.favoriteBtn:active {
+  transform: scale(0.98);
+}
+
+/* Адаптив под мобилки */
+@media (max-width: 768px) {
+  .title {
+    font-size: 28px;
+  }
+
+  .body {
+    font-size: 16px;
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .favoriteBtn {
+    width: 100%;
+    text-align: center;
+  }
+}

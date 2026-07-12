@@ -1,0 +1,162 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navBarItem {
+  position: relative;
+  color: #555555;
+  font-size: 15px;
+  font-weight: 500;
+  font-family: 'Roboto', sans-serif;
+  text-decoration: none;
+  padding: 10px 5px;
+  transition: color 0.25s ease;
+}
+
+.navBarItem:hover {
+  color: #1a1a1a;
+}
+
+.navBarItemActive {
+  color: #0070f3 !important;
+  font-weight: 600;
+}
+
+.navBarItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #0070f3;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.navBarItemActive::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.main {
+  padding-top: 70px;
+  background-color: #f8f9fa;
+  min-height: 100vh;
+}
+
+/* Родоначальник всей структуры приложения */
+.appWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Растягиваем на всю высоту экрана */
+}
+
+/* Шапка проекта */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  padding: 15px 0;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: center;
+}
+
+.navBar {
+  display: flex;
+  gap: 20px;
+}
+
+.navBarItem {
+  text-decoration: none;
+  color: #666666;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navBarItem:hover {
+  color: #0076ff;
+}
+
+.navBarItemActive {
+  color: #0076ff;
+  border-bottom: 2px solid #0076ff;
+}
+
+.main {
+  flex-grow: 1;
+  padding: 30px 0;
+}
+
+.footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px 0px;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.copy {
+  font-family: 'Roboto';
+  color: #aaaaaa;
+  margin: 0px;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.footerLink {
+  font-family: 'Roboto';
+  color: #ffffff;
+  text-decoration: none;
+  opacity: 0.8;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.footerLink:hover {
+  opacity: 1;
+  color: #0076ff;
+}
+
+@media (max-width: 576px) {
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+  }
+}
