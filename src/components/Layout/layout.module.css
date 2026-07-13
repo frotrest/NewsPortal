@@ -67,14 +67,12 @@
   min-height: 100vh;
 }
 
-/* Родоначальник всей структуры приложения */
 .appWrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Растягиваем на всю высоту экрана */
+  min-height: 100vh;
 }
 
-/* Шапка проекта */
 .header {
   background-color: #ffffff;
   border-bottom: 1px solid #eaeaea;
