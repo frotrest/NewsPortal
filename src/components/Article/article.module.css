@@ -33,7 +33,8 @@
   font-size: 14px;
   font-family: 'Open Sans';
   color: #666666;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
+  padding-top: 30px;
 }
 
 .source {
@@ -159,7 +160,6 @@
   transform: scale(0.98);
 }
 
-/* Адаптив под мобилки */
 @media (max-width: 768px) {
   .title {
     font-size: 28px;

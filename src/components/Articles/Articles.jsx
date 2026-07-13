@@ -3,7 +3,7 @@ import styles from './articles.module.css';
 import clsx from 'clsx';
 import Container from '../../Container';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../../store/FetchArticles';
+import { fetchArticles } from '../../store/fetchArticles';
 import { selectArticles, selectCurrentType, selectFavorites } from '../../store/selectors';
 import { Link, useLocation } from 'react-router';
 import { addFavorite, removeFavorite } from '../../store/favoritesSlice';
