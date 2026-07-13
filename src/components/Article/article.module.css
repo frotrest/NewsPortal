@@ -159,7 +159,6 @@
   transform: scale(0.98);
 }
 
-/* Адаптив под мобилки */
 @media (max-width: 768px) {
   .title {
     font-size: 28px;
