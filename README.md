@@ -1,18 +1,27 @@
-# React + Vite
+# NewsPortal — Modern News & Media Aggregator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**NewsPortal** is a high-qualiity application that makes you stay informed, real-time news aggregation platform that spreads only modern and real-time events on the entire world. The project focuses on strong state management, advanced routing synchronization via URL queries, and optimized data lifecycle handling. It serves as a strong demonstration of production-ready React patterns and strict frontend architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Key Features
 
-## React Compiler
+* **State-Driven Favorites System:** Interactive, real-time news bookmarking with individual card state toggles (`Add` / `Remove` from favorites) synced instantly across all views.
+* **URL-Synchronized Search & Filtering:** Dynamic search queries and categories completely related to the browser's URL using custom router hooks (`useSearchParams`). Users can share exact search results or filtered states directly via links.
+* **Smart UI Architecture:** Responsive grid structures, image fallback handlers for missing media, and responsive interactive feedback states.
+* **High-performance optimization:** Optimized images loading and the other things which help with general optimization (PageSpeed showcases average 95 percent of application's quality)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## Tech Stack & Architecture Highlights
 
-## Expanding the ESLint configuration
+### React & React Router
+* Implemented dynamic route states, history preservation (`state={{ from: location.pathname }}`), and global `basename` configuration for clean subdirectory production builds.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Redux Toolkit (State Management)
+* **Modular Slices:** Clean separation of concerns between global user data (`favoritesSlice`) and core news content streams (`articlesSlice`).
+* **Advanced Data Invalidation:** Custom action logic (like `clearArticles`) designed to reset specific cache levels and intercept infinite re-fetching loops.
+
+### Style Encapsulation
+* **CSS Modules & clsx:** Strict layout modularity with scoped component styles, preventing global scope pollution and achieving predictable component rendering.
+* **Zero-Weight Animations:** Optimized micro-interactions via pure CSS transitions, bypassing heavy third-party motion libraries for zero bundle bloat and strict 60 FPS performance.
