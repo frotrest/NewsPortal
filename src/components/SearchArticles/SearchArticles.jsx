@@ -1,10 +1,10 @@
 import React, { useCallback, useState, useEffect } from 'react';
 import styles from './searchArticles.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchArticles } from '../../store/FetchArticles';
+import { fetchArticles } from '../../store/fetchArticles';
 import clsx from 'clsx';
 import Container from '../../Container';
-import { clearArticles } from '../../store/ArticlesSlice';
+import { clearArticles } from '../../store/articlesSlice';
 import {
   selectArticles,
   selectCurrentType,
