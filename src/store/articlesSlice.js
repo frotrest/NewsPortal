@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchArticles } from './FetchArticles';
+import { fetchArticles } from './fetchArticles';
 
 const articlesSlice = createSlice({
   name: 'articles',
