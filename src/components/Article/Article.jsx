@@ -3,17 +3,22 @@ import styles from './article.module.css';
 import clsx from 'clsx';
 import { useLocation, useParams } from 'react-router';
 import Container from '../../Container.jsx';
-import { useSelector } from 'react-redux';
-import { selectArticleById } from '../../store/selectors.js';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectArticleById, selectFavorites } from '../../store/selectors.js';
 import { Link } from 'react-router';
+import { addFavorite, removeFavorite } from '../../store/favoritesSlice.js';
 
 const Article = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const location = useLocation();
+  const favorites = useSelector(selectFavorites);
   const articleFromRedux = useSelector((state) => selectArticleById(state, id));
   const article = location.state.article || articleFromRedux;
 
   const backLinkHref = location.state.from ?? '/';
+
+  const isFav = favorites.some((fav) => fav.article_id === article.article_id);
 
   if (!article) {
     return (
@@ -63,7 +68,20 @@ const Article = () => {
             <a href={article.link} target="_blank" className={clsx(styles.originLink)}>
               Читати оригінал джерела
             </a>
-            <button className={clsx(styles.favoriteBtn)}>Додати в обрані</button>
+            <button
+              className={clsx(styles.favoriteBtn, isFav && styles.favoriteBtnFav)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (isFav) {
+                  dispatch(removeFavorite(article));
+                } else {
+                  dispatch(addFavorite(article));
+                }
+              }}
+            >
+              {isFav ? 'Видалити з обраних' : 'Добавити в обрані'}
+            </button>
           </div>
         </article>
       </Container>

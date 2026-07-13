@@ -140,6 +140,17 @@
     transform 0.1s ease;
 }
 
+.favoriteBtnFav {
+  background-color: #f4f4f5 !important;
+  color: #71717a !important;
+  border: none !important;
+}
+
+.favoriteBtnFav:hover {
+  background-color: #fee2e2 !important;
+  color: #ef4444 !important;
+}
+
 .favoriteBtn:hover {
   background-color: #0056b3;
 }

@@ -11,7 +11,7 @@ createRoot(document.body).render(
   <StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <BrowserRouter basename="NewsPortal">
+        <BrowserRouter basename="/NewsPortal">
           <App />
         </BrowserRouter>
       </PersistGate>

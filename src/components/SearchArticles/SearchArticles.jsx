@@ -5,8 +5,14 @@ import { fetchArticles } from '../../store/FetchArticles';
 import clsx from 'clsx';
 import Container from '../../Container';
 import { clearArticles } from '../../store/ArticlesSlice';
-import { selectArticles, selectCurrentType, selectLoading } from '../../store/selectors';
+import {
+  selectArticles,
+  selectCurrentType,
+  selectFavorites,
+  selectLoading,
+} from '../../store/selectors';
 import { Link, useLocation, useSearchParams } from 'react-router';
+import { addFavorite, removeFavorite } from '../../store/favoritesSlice';
 
 const SearchArticles = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -16,6 +22,7 @@ const SearchArticles = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
+  const favorites = useSelector(selectFavorites) || [];
   const articles = useSelector(selectArticles) || [];
   const loading = useSelector(selectLoading);
   const currentType = useSelector(selectCurrentType);
@@ -71,28 +78,44 @@ const SearchArticles = () => {
             )}
 
             {!loading &&
-              articles.map((article) => (
-                <Link
-                  key={article.article_id}
-                  to={`/article/${article.article_id}`}
-                  state={{ article, from: `${location.pathname}?q=${queryParam}` }}
-                  className={styles.article}
-                >
-                  <img
-                    src={article.image_url === null ? article.source_icon : article.image_url}
-                    alt={article.title}
-                    loading="lazy"
-                    className={styles.articleImg}
-                  />
-                  <div className={styles.articleContent}>
-                    <h3 className={styles.articleTitle}>{article.title}</h3>
-                    <p className={styles.articleDescription}>
-                      {article.description || 'Опис відсутній...'}
-                    </p>
-                    <button className={clsx(styles.articleBtn)}>Добавити в обрані</button>
-                  </div>
-                </Link>
-              ))}
+              articles.map((article) => {
+                const isFav = favorites.some((fav) => fav.article_id === article.article_id);
+                return (
+                  <Link
+                    key={article.article_id}
+                    to={`/article/${article.article_id}`}
+                    state={{ article, from: `${location.pathname}?q=${queryParam}` }}
+                    className={styles.article}
+                  >
+                    <img
+                      src={article.image_url === null ? article.source_icon : article.image_url}
+                      alt={article.title}
+                      loading="lazy"
+                      className={styles.articleImg}
+                    />
+                    <div className={styles.articleContent}>
+                      <h3 className={styles.articleTitle}>{article.title}</h3>
+                      <p className={styles.articleDescription}>
+                        {article.description || 'Опис відсутній...'}
+                      </p>
+                      <button
+                        className={clsx(styles.articleBtn, isFav && styles.articleBtnFav)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          if (isFav) {
+                            dispatch(removeFavorite(article));
+                          } else {
+                            dispatch(addFavorite(article));
+                          }
+                        }}
+                      >
+                        {isFav ? 'Видалити з обраних' : 'Добавити в обрані'}
+                      </button>
+                    </div>
+                  </Link>
+                );
+              })}
           </div>
         )}
       </Container>

@@ -22,4 +22,5 @@ export default defineConfig({
       localsConvention: 'camelCase',
     },
   },
+  base: '/NewsPortal',
 });

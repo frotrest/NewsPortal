@@ -16,7 +16,7 @@ const Layout = () => {
       title: 'Шукати новини',
     },
     {
-      link: '/favoriteArticles',
+      link: '/favorites',
       title: 'Обрані новини',
     },
   ];
