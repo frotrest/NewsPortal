@@ -1,6 +1,6 @@
 # NewsPortal — Modern News & Media Aggregator
 
-**NewsPortal** is a high-quality application that makes you stay informed and also real-time news aggregation platform that delivers only modern and real-time events on the entire world. The project focuses on strong state management, advanced routing synchronization via URL queries, and optimized data lifecycle handling. It serves as a strong demonstration of production-ready React patterns and strict frontend architecture.
+**NewsPortal** is a high-quality application that makes you stay informed and furthermore real-time news aggregation platform that delivers only modern and real-time events on the entire world. The project focuses on strong state management, advanced routing synchronization via URL queries, and optimized data lifecycle handling. It serves as a strong demonstration of production-ready React patterns and strict frontend architecture.
 
 ---
 
