@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { fetchArticles } from './FetchArticles';
+import { fetchArticles } from './fetchArticles';
 
 const articlesAdapter = createEntityAdapter({
   selectId: (article) => article.article_id,
