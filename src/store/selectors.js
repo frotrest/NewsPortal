@@ -1,5 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { selectAllArticles, selectArticleById } from './ArticlesSlice';
+import { selectAllArticles, selectArticleById } from './articlesSlice';
 
 export const selectCurrentType = (state) => state.articles.currentType;
 export const selectLoading = (state) => state.articles.loading;
