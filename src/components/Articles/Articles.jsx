@@ -4,12 +4,12 @@ import clsx from 'clsx';
 import Container from '../../Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArticles } from '../../store/fetchArticles';
-import { selectArticles, selectCurrentType, selectFavorites } from '../../store/selectors';
+import { selectAllArticles, selectCurrentType, selectFavorites } from '../../store/selectors';
 import { Link, useLocation } from 'react-router';
 import { addFavorite, removeFavorite } from '../../store/favoritesSlice';
 
 const Articles = () => {
-  const articles = useSelector(selectArticles) || [];
+  const articles = useSelector(selectAllArticles) || [];
   const favorites = useSelector(selectFavorites) || [];
   const currentType = useSelector(selectCurrentType);
   const dispatch = useDispatch();

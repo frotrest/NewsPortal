@@ -1,15 +1,21 @@
 import { createSelector } from '@reduxjs/toolkit';
-
-export const selectArticles = (state) => state.articles.articles;
-export const selectArticleId = (state, id) => id;
+import { selectAllArticles, selectArticleById } from './ArticlesSlice';
 
 export const selectCurrentType = (state) => state.articles.currentType;
 export const selectLoading = (state) => state.articles.loading;
 
-export const selectArticleById = createSelector(
-  [selectArticles, selectArticleId],
-  (articles, id) => {
-    return articles.find((article) => article.article_id === id);
+export { selectAllArticles, selectArticleById };
+
+export const selectSearchQuery = (state, query) => query;
+
+export const selectFilteredArticles = createSelector(
+  [selectAllArticles, selectSearchQuery],
+  (articles, query) => {
+    if (!query) return articles;
+    else {
+      const lowerQuery = query.toLowerCase();
+      return articles.filter((article) => article.title.toLowerCase().includes(lowerQuery));
+    }
   },
 );
 
