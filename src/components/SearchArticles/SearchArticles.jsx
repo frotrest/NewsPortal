@@ -4,13 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchArticles } from '../../store/fetchArticles';
 import clsx from 'clsx';
 import Container from '../../Container';
-import { clearArticles } from '../../store/articlesSlice';
-import {
-  selectArticles,
-  selectCurrentType,
-  selectFavorites,
-  selectLoading,
-} from '../../store/selectors';
+import { clearArticles, selectAllArticles } from '../../store/articlesSlice';
+import { selectCurrentType, selectFavorites, selectLoading } from '../../store/selectors';
 import { Link, useLocation, useSearchParams } from 'react-router';
 import { addFavorite, removeFavorite } from '../../store/favoritesSlice';
 
@@ -23,7 +18,7 @@ const SearchArticles = () => {
   const location = useLocation();
 
   const favorites = useSelector(selectFavorites) || [];
-  const articles = useSelector(selectArticles) || [];
+  const articles = useSelector(selectAllArticles) || [];
   const loading = useSelector(selectLoading);
   const currentType = useSelector(selectCurrentType);
 

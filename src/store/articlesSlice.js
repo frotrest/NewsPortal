@@ -1,23 +1,27 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { fetchArticles } from './FetchArticles';
+
+const articlesAdapter = createEntityAdapter({
+  selectId: (article) => article.article_id,
+  sortComparer: (a, b) => a.article_id.localeCompare(b.article_id),
+});
 
 const articlesSlice = createSlice({
   name: 'articles',
-  initialState: {
-    articles: [],
+  initialState: articlesAdapter.getInitialState({
     loading: false,
     error: null,
     currentType: '',
-  },
+  }),
   reducers: {
     clearArticles(state) {
-      state.articles = [];
+      articlesAdapter.removeAll(state);
     },
   },
   extraReducers: (builder) => {
     builder
       .addCase(fetchArticles.fulfilled, (state, action) => {
-        ((state.loading = false), (state.articles = action.payload.results));
+        ((state.loading = false), articlesAdapter.setAll(state, action.payload.results));
         if (action.meta.arg.query) {
           state.currentType = 'search';
         } else {
@@ -41,3 +45,9 @@ const articlesSlice = createSlice({
 
 export default articlesSlice.reducer;
 export const { clearArticles } = articlesSlice.actions;
+
+export const {
+  selectAll: selectAllArticles,
+  selectById: selectArticleById,
+  selectIds: selectArticleIds,
+} = articlesAdapter.getSelectors((state) => state.articles);
