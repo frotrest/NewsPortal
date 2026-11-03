@@ -1,8 +1,8 @@
 name: Deploy to GitHub Pages
 
 on:
-  pull_request: 
-    branches: 
+  pull_request:
+    branches:
       - main
   push:
     branches:
@@ -13,7 +13,7 @@ permissions:
   pages: write
   id-token: write
 
-concurrency: 
+concurrency:
   group: ${{github.workflow}}-${{github.ref}}
   cancel-in-progress: ${{github.event_name == 'pull_request'}}
 
