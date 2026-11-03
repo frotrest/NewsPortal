@@ -23,4 +23,9 @@ export default defineConfig({
     },
   },
   base: '/NewsPortal',
+  server: {
+    watch: {
+      usePolling: true,
+    }
+  }
 });
